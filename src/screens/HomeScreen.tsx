@@ -1,11 +1,12 @@
 import React from 'react'
-import {Text, SafeAreaView} from 'react-native'
+import {Text, SafeAreaView, View, Image, TouchableOpacity} from 'react-native'
+import Header from '../../src/components/Header'
 
 const HomeScreen = (): any => {
     return (
-        <SafeAreaView>
-            <Text>test </Text>   
-        </SafeAreaView>
+        <View style={{flex:1}}>
+            <Header/>    
+        </View>
     )
 }
 
