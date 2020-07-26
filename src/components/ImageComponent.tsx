@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import ImageComponentHeader from './ImageComponentHeader'
+import ImageComponentFooter from './ImageComponentFooter'
 
 const ImageComponent = (): any => {
     return (
@@ -9,6 +10,7 @@ const ImageComponent = (): any => {
             <Image 
                 source={require('../../src/assets/images/mayoo.jpeg')}
             />
+            <ImageComponentFooter/>
         </View>
     )
 }
