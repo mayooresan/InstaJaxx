@@ -5,7 +5,7 @@ import ImageComponentFooter from './ImageComponentFooter'
 
 const ImageComponent = (): any => {
     return (
-        <View>
+        <View style={{marginTop:32}}>
             <ImageComponentHeader/>
             <Image 
                 source={require('../../src/assets/images/mayoo.jpeg')}
