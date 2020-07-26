@@ -18,7 +18,8 @@ const HomeScreen = (): any => {
           title: 'Third Item',
         },
       ];
-    const renderItem = ( ) => (
+    
+    const renderItem = ( ): any => (
         <ImageComponent/>
     );
 
