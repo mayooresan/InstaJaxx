@@ -10,10 +10,18 @@
 
 import React from 'react';
 import HomeScreen from './src/screens/HomeScreen';
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import reducer from './src/redux/store'
+
+const store = createStore(reducer)
 
 const App = (): any => {
   return (
-      <HomeScreen/>
+    <Provider store={store}>
+        <HomeScreen />
+    </Provider>
+      
   );
 };
 
