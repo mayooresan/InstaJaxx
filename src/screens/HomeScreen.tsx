@@ -14,8 +14,8 @@ const HomeScreen = (): any => {
       dispatch(fetchImages())
   }, [])
     
-    const renderItem = ( ): any => (
-        <ImageComponent/>
+    const renderItem = ({ item } ): any => (
+        <ImageComponent title={item.title} Uri={item.url}/>
     );
 
     return (
