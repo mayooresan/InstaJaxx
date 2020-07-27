@@ -3,26 +3,24 @@ import {Text, SafeAreaView, View, Image, TouchableOpacity, ScrollView, FlatList}
 import Header from '../../src/components/Header'
 import ImageComponent from '../../src/components/ImageComponent'
 import {connect, useSelector, useDispatch} from 'react-redux'
-import { fetchImages, increasePaginationCount } from '../../src/redux/actions'
+import { fetchImages } from '../../src/redux/actions'
 import {RootState} from '../../src/redux/reducer'
 
 const HomeScreen = (): any => {
-  const dispatch = useDispatch()
-  const imageData = useSelector( (state: RootState) => state.data)
-  const isLoading = useSelector((state: RootState) => state.loading)
-  const [pagination, setPagination] = useState<number>(1)
+    const dispatch = useDispatch()
+    const imageData = useSelector( (state: RootState) => state.data)
+    const isLoading = useSelector((state: RootState) => state.loading)
+    const [pagination, setPagination] = useState<number>(1)
   
-
     useEffect(() => {
         dispatch(fetchImages(pagination))
     }, [pagination])
 
-
-  const handleLoadMore = () => {
-      if (isLoading == false) {
-       setPagination(pagination+1)
-      }
-  }
+    const handleLoadMore = () => {
+        if (isLoading == false) {
+        setPagination(pagination+1)
+        }
+    }
     
     const renderItem = ({ item } : any ): any => (
         <ImageComponent 
@@ -42,7 +40,7 @@ const HomeScreen = (): any => {
                 data={imageData}
                 renderItem={renderItem}
                 keyExtractor={item => item.id.toString()}
-                onEndReachedThreshold={2}
+                onEndReachedThreshold={100}
                 onEndReached={handleLoadMore}
             /> 
         </View>

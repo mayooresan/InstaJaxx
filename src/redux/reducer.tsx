@@ -3,14 +3,12 @@ export interface RootState {
     loading: boolean;
     data: any;
     error: string;
-    pagination: number;
 }
 
 export const initialState: RootState = {
     loading:false,
     data:[],
     error:"",
-    pagination:1,
 }
 
 const reducer = (state = initialState, action: any): any => {
@@ -21,7 +19,6 @@ const reducer = (state = initialState, action: any): any => {
             return {
                 loading:false,
                 error:action.payload,
-                data:[]
             }
         case FETCH_POSTS_REQUESTS_SUCCESS:
             let cachedData = [...state.data]
