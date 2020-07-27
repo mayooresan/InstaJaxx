@@ -10,11 +10,13 @@
 
 import React from 'react';
 import HomeScreen from './src/screens/HomeScreen';
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
-import reducer from './src/redux/store'
+import reducer from './src/redux/reducer'
+import thunk from 'redux-thunk';
 
-const store = createStore(reducer)
+
+const store = createStore(reducer, applyMiddleware(thunk))
 
 const App = (): any => {
   return (

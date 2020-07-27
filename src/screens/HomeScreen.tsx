@@ -1,23 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Text, SafeAreaView, View, Image, TouchableOpacity, ScrollView, FlatList} from 'react-native'
 import Header from '../../src/components/Header'
 import ImageComponent from '../../src/components/ImageComponent'
+import {connect, useSelector, useDispatch} from 'react-redux'
+import { fetchImages } from '../../src/redux/actions'
+import {RootState} from '../../src/redux/reducer'
 
 const HomeScreen = (): any => {
-    const DATA = [
-        {
-          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-          title: 'First Item',
-        },
-        {
-          id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-          title: 'Second Item',
-        },
-        {
-          id: '58694a0f-3da1-471f-bd96-145571e29d72',
-          title: 'Third Item',
-        },
-      ];
+  const dispatch = useDispatch()
+  const imageData = useSelector( (state: RootState) => state.data)
+  
+  useEffect(() => {
+      dispatch(fetchImages())
+  }, [])
     
     const renderItem = ( ): any => (
         <ImageComponent/>
@@ -27,9 +22,9 @@ const HomeScreen = (): any => {
         <View style={{flex:1}}>
             <Header/>
             <FlatList
-                data={DATA}
+                data={imageData}
                 renderItem={renderItem}
-                keyExtractor={item => item.id}
+                keyExtractor={item => item.id.toString()}
             /> 
         </View>
     )
