@@ -31,7 +31,7 @@ const ImageComponentFooter = (props: {title: String, likes: Number, userName: St
                  <TouchableOpacity>
                     <Image
                             source={require('../../src/assets/images/bookmark.png')}
-                            style={styles.imageButtonStyle}
+                            style={styles.imageButtonStyleBookMark}
                         />
                     </TouchableOpacity>
              </View>
@@ -55,6 +55,11 @@ const styles = StyleSheet.create({
         width:30, 
         height:30, 
         marginLeft:16, 
+        resizeMode: 'contain'
+    }, imageButtonStyleBookMark: {
+        width:30, 
+        height:30, 
+        marginRight:16, 
         resizeMode: 'contain'
     }, boldTextStyle: {
         margin:16, 
