@@ -9,12 +9,17 @@ interface ImageData {
     likes: Number;
     profileImage: string;
     userName: String;
+    location: String;
 }
 
 const ImageComponent = (props: ImageData): any => {
     return (
         <View style={{marginTop:32}}>
-            <ImageComponentHeader profileImage={props.profileImage} userName={props.userName}/>
+            <ImageComponentHeader 
+                profileImage={props.profileImage} 
+                userName={props.userName}
+                location={props.location}
+            />
             <Image source={{uri: props.Uri}} 
                 style={{ resizeMode: 'cover', width: '100%', height:300 }}
             />

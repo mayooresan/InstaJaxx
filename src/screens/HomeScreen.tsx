@@ -21,6 +21,7 @@ const HomeScreen = (): any => {
           likes={item.likes} 
           profileImage = {item.user.profile_image.small}
           userName = {item.user.username}
+          location = {item.user.location}
         />
     );
 
