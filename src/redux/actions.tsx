@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Alert } from 'react-native';
 
 export const FETCH_POSTS_REQUESTS = 'FETCH_POSTS_REQUESTS';
 export const FETCH_POSTS_REQUESTS_ERROR = 'FETCH_POSTS_REQUESTS_ERROR';
@@ -8,10 +9,10 @@ export const fetchImageRequests = () => {
     return {type: FETCH_POSTS_REQUESTS}
 }
 
-export const fetchImages = () => {
+export const fetchImages = (pagination: number) => {
     return (dispatch: any) => {
         dispatch(fetchImageRequests)
-        axios.get('https://api.unsplash.com/photos/?page=1&client_id=5DWQpptvtD4X7LBVl7Ive8LuWrjWdyGNovl45NsvegM')
+        axios.get('https://api.unsplash.com/photos/?page='+pagination+'&client_id=5DWQpptvtD4X7LBVl7Ive8LuWrjWdyGNovl45NsvegM')
             .then(response => {
                 const images = response.data
                 dispatch(fetchImageRequestsSuccess(images))
