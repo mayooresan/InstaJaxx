@@ -11,7 +11,7 @@ export const fetchImageRequests = () => {
 export const fetchImages = () => {
     return (dispatch: any) => {
         dispatch(fetchImageRequests)
-        axios.get('http://jsonplaceholder.typicode.com/photos?_start=0&_limit=5')
+        axios.get('https://api.unsplash.com/photos/?page=1&client_id=5DWQpptvtD4X7LBVl7Ive8LuWrjWdyGNovl45NsvegM')
             .then(response => {
                 const images = response.data
                 dispatch(fetchImageRequestsSuccess(images))
