@@ -15,7 +15,13 @@ const HomeScreen = (): any => {
   }, [])
     
     const renderItem = ({ item } : any ): any => (
-        <ImageComponent title={item.alt_description} Uri={item.urls.regular}/>
+        <ImageComponent 
+          title={item.alt_description} 
+          Uri={item.urls.regular} 
+          likes={item.likes} 
+          profileImage = {item.user.profile_image.small}
+          userName = {item.user.username}
+        />
     );
 
     return (

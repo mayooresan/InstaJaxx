@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native'
 
-const ImageComponentFooter = (props: {title: String}) => {
+const ImageComponentFooter = (props: {title: String, likes: Number, userName: String}) => {
     return (
-        <SafeAreaView style={{marginTop:16, marginBottom:48}}>
+        <SafeAreaView style={{marginTop:16}}>
              <View style={{flexDirection:'row'}}>
                  <View style={{flexDirection:'row', width:'90%'}}>
                         <TouchableOpacity>
@@ -35,9 +35,9 @@ const ImageComponentFooter = (props: {title: String}) => {
                         />
                     </TouchableOpacity>
              </View>
-            <Text style={{margin:16, fontWeight: 'bold'}}>130 Likes</Text>
+            <Text style={{margin:16, fontWeight: 'bold'}}>{props.likes} Likes</Text>
             <View style={{flexDirection:'row', alignItems:'center', paddingLeft:16, paddingRight:16}}>
-                <Text><Text style={{fontWeight: 'bold'}}>jaydraws2019</Text> {props.title} </Text>
+                    <Text><Text style={{fontWeight: 'bold'}}>{props.userName}</Text> {props.title} </Text>
             </View>
         </SafeAreaView>
     )
