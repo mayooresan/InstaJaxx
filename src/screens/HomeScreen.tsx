@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import {Text, SafeAreaView, View, Image, TouchableOpacity, ScrollView, FlatList} from 'react-native'
+import {View, FlatList, StyleSheet} from 'react-native'
 import Header from '../../src/components/Header'
 import ImageComponent from '../../src/components/ImageComponent'
-import {connect, useSelector, useDispatch} from 'react-redux'
+import { useSelector, useDispatch} from 'react-redux'
 import { fetchImages } from '../../src/redux/actions'
 import {RootState} from '../../src/redux/reducer'
 
@@ -34,7 +34,7 @@ const HomeScreen = (): any => {
     );
 
     return (
-        <View style={{flex:1}}>
+        <View style={styles.container}>
             <Header/>
             <FlatList
                 data={imageData}
@@ -46,5 +46,11 @@ const HomeScreen = (): any => {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+    },
+});
 
 export default HomeScreen
