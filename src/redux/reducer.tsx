@@ -22,9 +22,16 @@ const reducer = (state = initialState, action: any): any => {
             }
         case FETCH_POSTS_REQUESTS_SUCCESS:
             let cachedData = [...state.data]
+            //unsplash api returns duplicate values so duplicate check in place
+            const imageIDs = new Set(cachedData.map(({ id }) => id));
+            const combined = [
+            ...cachedData,
+            ...action.payload.filter(({ id }: any) => !imageIDs.has(id))
+            ];
+
             return {
                 loading:false,
-                data:cachedData.concat(action.payload)
+                data:combined
             }
     }
     return state

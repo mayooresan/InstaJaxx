@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default ImageComponent
+export default React.memo(ImageComponent)

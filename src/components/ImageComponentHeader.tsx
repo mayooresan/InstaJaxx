@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default ImageComponentHeader
+export default React.memo(ImageComponentHeader)

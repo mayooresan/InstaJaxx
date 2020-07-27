@@ -40,7 +40,7 @@ const HomeScreen = (): any => {
                 data={imageData}
                 renderItem={renderItem}
                 keyExtractor={item => item.id.toString()}
-                onEndReachedThreshold={100}
+                onEndReachedThreshold={0.4}
                 onEndReached={handleLoadMore}
             /> 
         </View>

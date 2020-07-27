@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default ImageComponentFooter
+export default React.memo(ImageComponentFooter)

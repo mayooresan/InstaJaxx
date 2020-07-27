@@ -12,6 +12,7 @@ export const fetchImageRequests = () => {
 export const fetchImages = (pagination: number) => {
     return (dispatch: any) => {
         dispatch(fetchImageRequests)
+        console.log(pagination)
         axios.get('https://api.unsplash.com/photos/?page='+pagination+'&client_id=5DWQpptvtD4X7LBVl7Ive8LuWrjWdyGNovl45NsvegM')
             .then(response => {
                 const images = response.data
