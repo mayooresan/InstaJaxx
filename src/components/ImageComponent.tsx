@@ -3,14 +3,27 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import ImageComponentHeader from './ImageComponentHeader'
 import ImageComponentFooter from './ImageComponentFooter'
 
-const ImageComponent = (): any => {
+interface ImageData {
+    title: String;
+    Uri: string;
+    likes: Number;
+    profileImage: string;
+    userName: String;
+    location: String;
+}
+
+const ImageComponent = (props: ImageData): any => {
     return (
         <View style={{marginTop:32}}>
-            <ImageComponentHeader/>
-            <Image 
-                source={require('../../src/assets/images/mayoo.jpeg')}
+            <ImageComponentHeader 
+                profileImage={props.profileImage} 
+                userName={props.userName}
+                location={props.location}
             />
-            <ImageComponentFooter/>
+            <Image source={{uri: props.Uri}} 
+                style={{ resizeMode: 'cover', width: '100%', height:300 }}
+            />
+            <ImageComponentFooter title={props.title} likes={props.likes} userName={props.userName}/>
         </View>
     )
 }
